@@ -1,0 +1,23 @@
+{
+  "id": "hanzi-flow-app",
+  "short_name": "Hanzi Flow",
+  "name": "汉字笔画",
+  "icons": [
+    {
+      "src": "https://hanzi.holin.space/192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://hanzi.holin.space/512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#ffffff",
+  "background_color": "#fdfbf7",
+  "orientation": "portrait"
+}

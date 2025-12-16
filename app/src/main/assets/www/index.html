@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title>Hanzi Flow - 汉字笔画</title>
+    <link rel="manifest" href="/assets/manifest-DLb3N_pg.json" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              serif: ['"Noto Serif SC"', 'serif'],
+              sans: ['"Noto Sans SC"', 'sans-serif'],
+            },
+            colors: {
+              ink: {
+                900: '#1a1a1a',
+                800: '#2d2d2d',
+                700: '#404040',
+              },
+              paper: {
+                50: '#fdfbf7',
+                100: '#f7f3e8',
+                200: '#efe6d0',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #fdfbf7;
+        color: #2d2d2d;
+      }
+      /* Custom loader for Hanzi */
+      .hanzi-loader {
+        width: 48px;
+        height: 48px;
+        border: 5px solid #e5e7eb;
+        border-bottom-color: #ef4444;
+        border-radius: 50%;
+        display: inline-block;
+        box-sizing: border-box;
+        animation: rotation 1s linear infinite;
+      }
+
+      @keyframes rotation {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+<link rel="stylesheet" href="/index.css">
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.33.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.561.0",
+    "hanzi-writer": "https://esm.sh/hanzi-writer@^3.7.3"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/assets/index-CgtMgYhb.js"></script>
+</head>
+  <body>
+    <div id="root"></div>
+</body>
+</html>
