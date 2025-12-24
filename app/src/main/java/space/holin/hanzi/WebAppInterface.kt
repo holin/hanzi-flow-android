@@ -8,10 +8,15 @@ import java.util.Locale
 class WebAppInterface(private val context: Context) : TextToSpeech.OnInitListener {
     private var tts: TextToSpeech? = null
     private var isLoaded = false // 标记是否初始化成功
+    var onOCRRequestListener: OnOCRRequestListener? = null
 
     init {
         // 初始化 TTS
         tts = TextToSpeech(context, this)
+    }
+
+    interface OnOCRRequestListener {
+        fun onOCRRequest()
     }
 
     override fun onInit(status: Int) {
@@ -47,6 +52,17 @@ class WebAppInterface(private val context: Context) : TextToSpeech.OnInitListene
         if (code == TextToSpeech.ERROR) {
             Log.e("TTS", "播放指令发送失败 (Generic Error)")
         }
+    }
+
+    @JavascriptInterface
+    fun captureText() {
+        Log.d("OCR", "JS 请求拍照识别文字")
+        onOCRRequestListener?.onOCRRequest()
+    }
+
+    fun onOCRResult(text: String) {
+        // 这个方法将在 WebView 所在的线程调用 JS 回调
+        Log.d("OCR", "识别结果: $text")
     }
 
     // 记得在 Activity 销毁时释放资源，防止内存泄漏
